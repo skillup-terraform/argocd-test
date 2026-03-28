@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Log in to Docker Hub manually
-        run: echo "${{ secrets.DOCKERHUB_PAT }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        run: docker login docker.io -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PAT }}"
 
       - name: Build image
         working-directory: ./application # Switch to app folder
