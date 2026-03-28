@@ -22,8 +22,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Debug Secret Check
+        run: |
+          if [ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]; then
+            echo "DOCKERHUB_USERNAME is EMPTY"
+          else
+            echo "DOCKERHUB_USERNAME is SET"
+          fi
+
+      - name: Debug Secret Check-2
+        run: |
+          if [ -z "${{ secrets.DOCKER_USERNAME }}" ]; then
+            echo "DOCKER_USERNAME is EMPTY"
+          else
+            echo "DOCKER_USERNAME is SET"
+          fi
+
       - name: Log in to Docker Hub manually
-        run: docker login docker.io -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}"
+        run: docker login docker.io -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKERHUB_TOKEN }}"
 
       - name: Build image
         working-directory: ./application # Switch to app folder
