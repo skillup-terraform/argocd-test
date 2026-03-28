@@ -8,7 +8,7 @@ on: [push]                # Event (trigger)
 
 jobs:
   build:                  # Job
-    runs-on: ubuntu-latest   # Runner
+    runs-on: ubuntu-latest   # Runner - https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
 
     steps:
       - name: Checkout code
