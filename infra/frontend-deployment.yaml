@@ -15,5 +15,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: sureshtamizan/frontend:5.0.0
-      
+        image: sureshtamizan/my-app:5.0.0
+      imagePullSecrets:
+        - name: dockerhub-pat-secret
